@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import Logging from './components/Logging'
+import Oportunity from './components/Oportunity';
+import Contact from './components/Contact';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import FormContact from './components/FormContact';
+import FormOportunity from './components/FormOportunity';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+    <Route path ="/" element = {<Logging/>} />
+    <Route path ="/opportunity" element = {<Oportunity/>} />
+    <Route path ="/opportunity/form" element = {<FormOportunity/>} />
+    <Route path ="/opportunity/:idOportunity/contact" element = {<Contact/>} />
+    <Route path ="/opportunity/:idOportunity/contact/form" element = {<FormContact/>} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
